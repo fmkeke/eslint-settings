@@ -1,0 +1,69 @@
+{
+    "editor.minimap.enabled": true,
+    "breadcrumbs.enabled": false,
+    "files.autoSave": "onFocusChange",
+    "explorer.confirmDragAndDrop": false,
+    "files.defaultLanguage": "html",
+    "window.menuBarVisibility": "visible",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.semanticHighlighting.enabled": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "open-in-browser.default": "chrome",
+    "previewServer.startupProject": "String",
+    "window.zoomLevel": 0,
+    "editor.fontSize": 16,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "update.mode": "none",
+    "view-in-browser.customBrowser": "chrome",
+    "liveServer.settings.port": 0,
+    "vetur.completion.scaffoldSnippetSources": {},
+    "typescript.tsdk": "",
+    "emmet.excludeLanguages": [
+        "markdown"
+    ],
+    "emmet.syntaxProfiles": {
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "html.format.contentUnformatted": "",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.activityBar.visible": true,
+    "cssrem.rootFontSize": 37.5,
+    // vscode 更新后已经统一使用editor.codeActionsOnsave
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        "vue"
+    ],
+    "eslint.options": {
+        "configFile": "D:\\我的文档\\代码\\react\\test123\\app\\.eslintrc.js",
+        "plugins": ["html"]
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+     
+    "minapp-vscode.disableAutoConfig": true, // 两个选择器中是否换行
+    "workbench.colorTheme": "One Monokai",
+    "vsicons.dontShowNewVersionMessage": false,
+    "eslint.codeActionsOnSave.mode": "problems",
+    "[vue]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+    "prettier.singleQuote": true,
+    "editor.formatOnSave": false
+}
