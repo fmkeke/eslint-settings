@@ -1,0 +1,122 @@
+variables:
+ REGISTRY:  
+ BUILD_IMAGE: 
+ ALIYUN_IMAGE:  
+ PROJECT_DIR:  
+
+
+before_script:
+ - echo "begin to run script"
+ - echo $HOME
+stages:
+ - build
+ - deploy
+ - trigger
+
+# 构建模板
+build:dev:
+ stage: build
+ image:  镜像地址
+ script:
+  - yarn config set registry https://registry.npm.taobao.org
+  - yarn config set ignore-engines true
+  - npm install cnpm -g
+  - cnpm install
+  - yarn global add pm2
+  - yarn build
+ cache:
+  paths:
+  - dist.tar.gz
+  - .nuxt/
+  - static/
+  - package.json
+  - nuxt.config.js
+  policy: push
+ only:
+  - master
+
+# 开发分支发布镜像
+deploy:dev:
+ stage: deploy
+ image:  
+ variables:
+  DOCKER_IMAGE: $REGISTRY/$BUILD_IMAGE
+ script:
+  - docker version
+  - docker login -u admin -p  
+  - docker build -t $DOCKER_IMAGE:dev .
+  - docker push $DOCKER_IMAGE:dev
+ cache:
+  paths:
+  - dist.tar.gz
+  - .nuxt/
+  - static/
+  - package.json
+  - nuxt.config.js
+  policy: pull
+ only:
+  - master
+
+# 开发分支触发发布
+deploy:trigger:
+ stage: trigger
+ image:  
+ script:
+   only:
+  - master
+  
+# QA 打tags时候构建
+build:tags:
+ stage: build
+ image: $REGISTRY/xh2/node:10-alpine
+ script:
+  - yarn config set registry https://registry.npm.taobao.org
+  - yarn config set ignore-engines true
+  - npm install cnpm -g
+  - cnpm install
+  - yarn global add pm2
+  - yarn release
+ cache:
+  paths:
+  - dist.tar.gz
+  - .nuxt/
+  - static/
+  - package.json
+  - nuxt.config.js
+  policy: push
+ only:
+  - tags
+  
+# 打tag发布镜像到QA
+deploy:tag:
+ stage: deploy
+ image: $REGISTRY/xh2/docker:19.03.1
+ script:
+  - docker version
+  - docker build -t  $ALIYUN_IMAGE:$CI_COMMIT_TAG .
+  - docker tag $ALIYUN_IMAGE:$CI_COMMIT_TAG $ALIYUN_IMAGE:latest
+  - docker login -u 
+  - docker push $ALIYUN_IMAGE:latest
+  - docker push $ALIYUN_IMAGE:$CI_COMMIT_TAG
+ cache:
+  paths:
+  - dist.tar.gz
+  - .nuxt/
+  - static/
+  - package.json
+  - nuxt.config.js
+  policy: pull
+ only:
+  - tags
+  
+# 开发分支打tag触发发布
+deploy:tag-trigger:
+ stage: trigger
+ image: $REGISTRY/ 
+ script:
+  # - curl   
+    - curl   
+    
+ only:
+  - tags
+ # when: manual
