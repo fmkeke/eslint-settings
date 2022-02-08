@@ -1,0 +1,74 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "files.associations": {
+        "*.vue": "vue",
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript",
+        
+    },
+    "explorer.confirmDelete": false,
+
+    // tab 大小为2个空格
+    "editor.tabSize": 2,
+    "eslint.options": {
+        "extensions": [
+            ".js",
+            ".vue"
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "html",
+        "vue",
+        "jsx",
+        "tsx"
+    ],
+    // // 保存时格式化
+    "editor.formatOnSave": false,
+    // // 开启 vscode 文件路径导航
+    "breadcrumbs.enabled": true,
+    //  显示 markdown 中英文切换时产生的特殊字符
+    "editor.renderControlCharacters": true,
+    // eslint 检测文件类型
+    "vetur.format.defaultFormatter.html": "prettyhtml",
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+        "wrap_attributes": "auto"
+        },
+        "prettyhtml": {
+        "printWidth": 200,
+        "singleQuote": false,
+        "wrapAttributes": false,
+        "sortAttributes": false
+        },
+        "prettier": {
+        "semi": false,
+        "singleQuote": true
+        }
+    },
+    "extensions.confirmedUriHandlerExtensionIds": [],
+    "json.schemas": [],
+    "explorer.confirmDragAndDrop": false,
+    "workbench.editor.enablePreview": false,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "switch:command"
+    ],
+    "vsicons.dontShowNewVersionMessage": true,
+    "leetcode.endpoint": "leetcode-cn",
+    "leetcode.workspaceFolder": "/Users/admin/.leetcode",
+    "leetcode.defaultLanguage": "javascript",
+    "leetcode.hint.configWebviewMarkdown": false,
+    "leetcode.hint.commentDescription": false,
+    "leetcode.hint.commandShortcut": false,
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "minapp-vscode.disableAutoConfig": true,
+    "workbench.colorTheme": "Material Theme Palenight High Contrast",
+    "editor.fontSize": 16
+}
